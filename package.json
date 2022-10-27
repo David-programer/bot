@@ -1,0 +1,30 @@
+{
+  "name": "bot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon node ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "fs": "^0.0.1-security",
+    "http-errors": "~1.6.3",
+    "joi": "^17.6.0",
+    "morgan": "~1.9.1",
+    "node-cron": "^3.0.2",
+    "qrcode-terminal": "^0.12.0",
+    "random-useragent": "^0.5.0",
+    "sequelize": "^6.18.0",
+    "whatsapp-web.js": "^1.18.0",
+    "xmlbuilder2": "^3.0.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.20.0"
+  }
+}

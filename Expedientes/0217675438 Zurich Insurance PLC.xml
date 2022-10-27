@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso8859-1"?>
+        <ProcesosEIAC xsi:schemaLocation="http://www.tirea.es/EIAC/ProcesosEIAC ProcesosEIAC.xsd" xmlns="http://www.tirea.es/EIAC/ProcesosEIAC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Objetos>
+            <Siniestro>
+                <DatosPoliza>
+            <IdPoliza>00000115920688</IdPoliza>
+
+            <FechaEfecto>N</FechaEfecto>
+
+            <CodigoEntidad>
+                <CodigoInterno>Zurich Insurance PLC</CodigoInterno>
+                <CodigoDGS>C0133</CodigoDGS>
+            </CodigoEntidad>
+
+            <DatosRamo>
+                <DescripcionRamo>0054100001HOGAR GO]</DescripcionRamo>
+            </DatosRamo>
+
+            <OtrosDatos>
+                <AseguradosPoliza>
+                    <Asegurado>
+                        <Email>hidraulicamarbella@gmail.com</Email>
+                    </Asegurado>
+                </AseguradosPoliza>
+            </OtrosDatos>
+        </DatosPoliza>
+                <DatosSiniestro>
+            <IdSiniestroEntidad>0217675438</IdSiniestroEntidad>
+            <FechaDeclaracion>11/10/2022 12:25:43</FechaDeclaracion>
+            <FechaOcurrencia>09/10/2022 </FechaOcurrencia>
+            <PosicionSiniestro></PosicionSiniestro>
+
+            <SituacionesSiniestro>
+                <Situacion>
+                    <NumeroOrden></NumeroOrden>
+                    <SituacionSiniestro></SituacionSiniestro>
+                    <FechaSituacion></FechaSituacion>
+                </Situacion>
+            </SituacionesSiniestro>
+
+            <DescripcionSiniestro>[Capi] CTE Y CTO OK[Llam] AGENTE SRA MARIA CARMEN[Orig] SE HA PRODUCIDO ROBO EN VIVIENDA. [Dano] DAÑOS EN VENTANA, PUERTA Y MUEBLES[Limi] -[Inst]</DescripcionSiniestro>
+
+            <AccionesSiniestro>
+                <Accion>
+                    <AccionSiniestro></AccionSiniestro>
+                    <FechaAccion></FechaAccion>
+                    <DescripcionAccion></DescripcionAccion>
+                </Accion>
+            </AccionesSiniestro>
+
+            <LugarSiniestro>
+                <NombreVia>CL  ARTESILLA URB NORIA GOLF </NombreVia>
+                <CodigoPostal>CL  ARTESILLA URB NORIA GOLF </CodigoPostal>
+                <Poblacion></Poblacion>
+                <Provincia></Provincia>
+            </LugarSiniestro>
+
+            <RiesgosSiniestro>
+                <RiesgoRecSin>
+                <DescripcionRiesgo>Robo </DescripcionRiesgo>
+                //<Version>[Capi] CTE Y CTO OK[Llam] AGENTE SRA MARIA CARMEN[Orig] SE HA PRODUCIDO ROBO EN VIVIENDA. [Dano] DAÑOS EN VENTANA, PUERTA Y MUEBLES[Limi] -[Inst]</Version>
+                </RiesgoRecSin>
+            </RiesgosSiniestro>;
+
+            <tomador>
+                <nif>27344881C</nif>
+                <razonSocial>ARTESILLA URB NORIA</razonSocial>
+                <telefono></telefono>
+            </tomador>
+
+            <riesgosPoliza>
+                <riesgo>
+                    <direccion></direccion>
+                </riesgo>
+            </riesgosPoliza>
+        </DatosSiniestro>
+            </Siniestro>
+        </Objetos>
+        </ProcesosEIAC>
