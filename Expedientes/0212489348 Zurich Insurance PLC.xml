@@ -3,7 +3,7 @@
         <Objetos>
             <Siniestro>
                 <DatosPoliza>
-            <IdPoliza>00000115920688</IdPoliza>
+            <IdPoliza>00000123150641</IdPoliza>
 
             <FechaEfecto>N</FechaEfecto>
 
@@ -13,22 +13,22 @@
             </CodigoEntidad>
 
             <DatosRamo>
-                <DescripcionRamo>0054100001HOGAR GO]</DescripcionRamo>
+                <DescripcionRamo>0054100001HOGAR GO!</DescripcionRamo>
             </DatosRamo>
 
             <OtrosDatos>
                 <AseguradosPoliza>
                     <Asegurado>
-                        <Email>hidraulicamarbella@gmail.com</Email>
-                        <Nombre>ARTESILLA URB NORIA</Nombre>
+                        <Email></Email>
+                        <Nombre>de Rota,0079,CALAHON</Nombre>
                     </Asegurado>
                 </AseguradosPoliza>
             </OtrosDatos>
         </DatosPoliza>
                 <DatosSiniestro>
-            <IdSiniestroEntidad>0217675438</IdSiniestroEntidad>
-            <FechaDeclaracion>11/10/2022 12:25:43</FechaDeclaracion>
-            <FechaOcurrencia>09/10/2022 </FechaOcurrencia>
+            <IdSiniestroEntidad>0212489348</IdSiniestroEntidad>
+            <FechaDeclaracion>28/06/2022 13:35:11</FechaDeclaracion>
+            <FechaOcurrencia>25/06/2022 </FechaOcurrencia>
             <PosicionSiniestro></PosicionSiniestro>
 
             <SituacionesSiniestro>
@@ -39,7 +39,7 @@
                 </Situacion>
             </SituacionesSiniestro>
 
-            <DescripcionSiniestro>[Capi] CTE Y CTO OK[Llam] AGENTE SRA MARIA CARMEN[Orig] SE HA PRODUCIDO ROBO EN VIVIENDA. [Dano] DAÑOS EN VENTANA, PUERTA Y MUEBLES[Limi] -[Inst]</DescripcionSiniestro>
+            <DescripcionSiniestro>robo</DescripcionSiniestro>
 
             <AccionesSiniestro>
                 <Accion>
@@ -50,22 +50,22 @@
             </AccionesSiniestro>
 
             <LugarSiniestro>
-                <NombreVia>CL  ARTESILLA URB NORIA GOLF </NombreVia>
-                <CodigoPostal>CL  ARTESILLA URB NORIA GOLF </CodigoPostal>
+                <NombreVia>AV  de Rota </NombreVia>
+                <CodigoPostal>AV  de Rota </CodigoPostal>
                 <Poblacion>ALCANTARA, URBANIZACION </Poblacion>
-                <Provincia>LA CALA (MIJAS)</Provincia>
+                <Provincia>CALAHONDA-CHAPARRAL</Provincia>
             </LugarSiniestro>
 
             <RiesgosSiniestro>
                 <RiesgoRecSin>
                 <DescripcionRiesgo>Robo </DescripcionRiesgo>
-                //<Version>[Capi] CTE Y CTO OK[Llam] AGENTE SRA MARIA CARMEN[Orig] SE HA PRODUCIDO ROBO EN VIVIENDA. [Dano] DAÑOS EN VENTANA, PUERTA Y MUEBLES[Limi] -[Inst]</Version>
+                //<Version>robo</Version>
                 </RiesgoRecSin>
             </RiesgosSiniestro>;
 
             <tomador>
-                <nif>27344881C</nif>
-                <razonSocial>ARTESILLA URB NORIA</razonSocial>
+                <nif>Y5459127E</nif>
+                <razonSocial>de Rota,0079,CALAHON</razonSocial>
                 <telefono></telefono>
             </tomador>
 
@@ -77,7 +77,7 @@
 
             <FigurasSiniestro>
                 <FiguraSiniestro>
-                    <Tipo><Tipo>
+                    <Tipo>INCLUSIÓN DE ANEXOS A LA VIVIENDA&INCLUSIÓN DE ANEXOS A LA VIVIENDA®LA PROPORCIONAL®LA PROPORCIONAL&CAJA FUERTE&CAJA FUERTE&ESTABLECIMIENTO FRANQUICIA GENERAL A TODAS LAS GARANTÍAS&ESTABLECIMIEN<Tipo>
                 </FiguraSiniestro>
             </FigurasSiniestro>
 

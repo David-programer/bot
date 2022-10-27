@@ -25,6 +25,7 @@ async function xml( arrayExp ) {
                 <AseguradosPoliza>
                     <Asegurado>
                         <Email>${arrayExp.email_asegurado}</Email>
+                        <Nombre>${arrayExp.nombre_asegurado}</Nombre>
                     </Asegurado>
                 </AseguradosPoliza>
             </OtrosDatos>
@@ -58,8 +59,8 @@ async function xml( arrayExp ) {
             <LugarSiniestro>
                 <NombreVia>${arrayExp.dir}</NombreVia>
                 <CodigoPostal>${arrayExp.dir.split( ).pop()}</CodigoPostal>
-                <Poblacion></Poblacion>
-                <Provincia></Provincia>
+                <Poblacion>${arrayExp.poblacion}</Poblacion>
+                <Provincia>${arrayExp.provincia}</Provincia>
             </LugarSiniestro>
 
             <RiesgosSiniestro>
@@ -80,6 +81,13 @@ async function xml( arrayExp ) {
                     <direccion></direccion>
                 </riesgo>
             </riesgosPoliza>
+
+            <FigurasSiniestro>
+                <FiguraSiniestro>
+                    <Tipo>${arrayExp.datos_intervinientes_reparador}<Tipo>
+                </FiguraSiniestro>
+            </FigurasSiniestro>
+
         </DatosSiniestro>`;
 
     const xml = 

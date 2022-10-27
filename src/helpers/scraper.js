@@ -121,6 +121,9 @@ async function XMLexp( dato, user, pass, exp ){
                 nif: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(8) > td:nth-child(2)').textContent(),
                 fecha_efecto : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
                 email_asegurado: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(5) > td:nth-child(2)').textContent(),
+                datos_intervinientes_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(7) > td.valorCampo').textContent(),
+                nombre_asegurado: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(1) > td.valorCampo').textContent(),
+                provincia: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
             }
 
             await frameObject.locator('#tabInforme > a').click();
@@ -134,7 +137,7 @@ async function XMLexp( dato, user, pass, exp ){
                 tipo_siniestro : await frameObject.locator('body > table > tbody > tr:nth-child(2) > td > table:nth-child(4) > tbody > tr:nth-child(6) > td:nth-child(2)').textContent(),
                 fecha_ocurrencia : await frameObject.locator('body > table > tbody > tr:nth-child(2) > td > table:nth-child(4) > tbody > tr:nth-child(7) > td:nth-child(2)').textContent(),
                 ramo : await frameObject.locator('body > table > tbody > tr:nth-child(2) > td > table:nth-child(4) > tbody > tr:nth-child(18) > td.valorCampo').textContent(),
-                // datos_intervinientes_reparador : await frameObject.locator('').textContent(),
+                poblacion: await frameObject.locator('body > table > tbody > tr:nth-child(2) > td > table:nth-child(4) > tbody > tr:nth-child(5) > td:nth-child(4)').textContent(),
             }
 
             console.log(data);
