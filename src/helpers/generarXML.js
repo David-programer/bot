@@ -65,10 +65,10 @@ async function xml( arrayExp ) {
 
             <RiesgosSiniestro>
                 <RiesgoRecSin>
-                <DescripcionRiesgo>${arrayExp.tipo_siniestro}</DescripcionRiesgo>
-                //<Version>${arrayExp.version}</Version>
+                    <DescripcionRiesgo>${arrayExp.tipo_siniestro}</DescripcionRiesgo>
+                    <Version>${arrayExp.version}</Version>
                 </RiesgoRecSin>
-            </RiesgosSiniestro>;
+            </RiesgosSiniestro>
 
             <tomador>
                 <nif>${arrayExp.nif}</nif>
@@ -84,10 +84,10 @@ async function xml( arrayExp ) {
 
             <FigurasSiniestro>
                 <FiguraSiniestro>
-                    <Tipo>${arrayExp.datos_intervinientes_reparador}<Tipo>
+                    <Tipo>${arrayExp.tipo_figura}</Tipo>
+                    <Nombre>${arrayExp.nombre_figura}</Nombre>
                 </FiguraSiniestro>
             </FigurasSiniestro>
-
         </DatosSiniestro>`;
 
     const xml = 
@@ -106,8 +106,10 @@ async function xml( arrayExp ) {
     fs.writeFile(filepath, xml, (err) => {
         if (err) throw err;
         console.log("The file was succesfully saved!");
-        return { status: 200, message: "Se ha generado el archivo con exito", data: xml  }
-    });
+    })
+    
+    return { status: 200, message: "Se ha generado el archivo con exito", data: xml  }
+    // <Tipo>${arrayExp.datos_intervinientes_reparador}</Tipo>
 }
 
 module.exports = { xml };
