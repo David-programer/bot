@@ -1,20 +1,5 @@
 const bot_config = {
     1: {
-        uid                     :  1,
-        observaciones           : null,
-        boton_acepto_cookies    : null,
-        mapeo_exp               : null,
-        data_excluida           : null,
-        boton_login             : 'Aceptar',
-        id_user                 : 'username',
-        nombre_empresa          : 'GENERALI',
-        id_pass                 : 'password', 
-        ruta_loguin             : 'https://www.generali.es/arq_genernetPortalFormWeb/profesionalPortal.po',
-        link_exps               : 'https://www.generali.es/arq_genernetPortalFormWeb/profesionalPortal.po',
-        mapeo_lista             : '#orderDesktop > div.moduleCenter > div.moduleContent.tab1Content.active > div.listOrder.divLoader > div.moduleList.moduleListType1 || ul > li.moduleListLi2.linkOrderDetail.liLinked > p:nth-child(3) > span:nth-child(2)',
-    },
-
-    2: {
         uid                     :  2,
         observaciones           :  null,
         boton_login             : 'Entrar',
@@ -42,6 +27,21 @@ const bot_config = {
                                     fecha_efecto::body > div.libty > div > div:nth-child(1) > main > section > article.menu-tabs__container > div > article > div:nth-child(2) > div > div > div.col-component.col-cell.col-offset-0.col-8.col-tablet-100.col-mobile-0.horizontal-left.vertical-top.scroll-default.ov-default.espacio-3 > div > div:nth-child(1) > div > dl > span:nth-child(2) > dd||
                                     nif::body > div.libty > div > div:nth-child(1) > main > section > article.menu-tabs__container > div > article > div:nth-child(3) > div > div > div.collapsible-area__body > div > div > div > div > div.col-component.col-cell.col-offset-0.col-6.col-tablet-0.col-mobile-0.horizontal-left.vertical-top.scroll-default.ov-default.espacio-r-2 > dl > span:nth-child(1) > dd||
                                     nombre::body > div.libty > div > div:nth-child(1) > main > section > article.menu-tabs__container > div > article > div:nth-child(3) > div > div > div.collapsible-area__body > div > div > div > div > div.col-component.col-cell.col-offset-0.col-6.col-tablet-0.col-mobile-0.horizontal-left.vertical-top.scroll-default.ov-default.espacio-r-2 > dl > span:nth-child(2) > dd`,
+    },
+    
+    2: {
+        uid                     :  1,
+        observaciones           : null,
+        boton_acepto_cookies    : null,
+        mapeo_exp               : null,
+        data_excluida           : null,
+        boton_login             : 'Aceptar',
+        id_user                 : 'username',
+        nombre_empresa          : 'GENERALI',
+        id_pass                 : 'password', 
+        ruta_loguin             : 'https://www.generali.es/arq_genernetPortalFormWeb/profesionalPortal.po',
+        link_exps               : 'https://www.generali.es/arq_genernetPortalFormWeb/profesionalPortal.po',
+        mapeo_lista             : '#orderDesktop > div.moduleCenter > div.moduleContent.tab1Content.active > div.listOrder.divLoader > div.moduleList.moduleListType1 || ul > li.moduleListLi2.linkOrderDetail.liLinked > p:nth-child(3) > span:nth-child(2)',
     },
 
     3: {

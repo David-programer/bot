@@ -4,7 +4,6 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
-const client = require('./src/whatsapp/index');
 
 const app = express();
 
