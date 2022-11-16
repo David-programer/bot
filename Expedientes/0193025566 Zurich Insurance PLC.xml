@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso8859-1"?>
+<ProcesosEIAC xsi:schemaLocation="http://www.tirea.es/EIAC/ProcesosEIAC ProcesosEIAC.xsd" xmlns="http://www.tirea.es/EIAC/ProcesosEIAC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Objetos>
+<Siniestro>
+<DatosPoliza>
+<IdPoliza>00000108732884</IdPoliza>
+<FechaEfecto>29/01/2020</FechaEfecto>
+<CodigoEntidad>
+<CodigoInterno>Zurich Insurance PLC</CodigoInterno>
+<CodigoDGS>C0133</CodigoDGS>
+</CodigoEntidad>
+<DatosRamo>
+<DescripcionRamo>0050400002MULTI.INMU</DescripcionRamo>
+</DatosRamo>
+
+<OtrosDatos>
+    <Agente>
+        <Email>felipe.rosales@zurichagente.es</Email>
+        <Nombre>FUENGIROLA-ROSALES</Nombre>
+        <Telefono>952478758</Telefono>
+    </Agente>
+</OtrosDatos>
+
+</DatosPoliza>
+<DatosSiniestro>
+<IdSiniestroEntidad>0193025566</IdSiniestroEntidad>
+<FechaDeclaracion>14/11/2022 10:07:51</FechaDeclaracion>
+<FechaOcurrencia>23/04/2021</FechaOcurrencia>
+<PosicionSiniestro>
+</PosicionSiniestro>
+<SituacionesSiniestro>
+<Situacion>
+<NumeroOrden>
+</NumeroOrden>
+<SituacionSiniestro>
+</SituacionSiniestro>
+<FechaSituacion>
+</FechaSituacion>
+</Situacion>
+</SituacionesSiniestro>
+<DescripcionSiniestro>filtracion por lluvia en el bq B 1º 8</DescripcionSiniestro>
+<AccionesSiniestro>
+<Accion>
+<AccionSiniestro>
+</AccionSiniestro>
+<FechaAccion>
+</FechaAccion>
+<DescripcionAccion>
+</DescripcionAccion>
+</Accion>
+</AccionesSiniestro>
+<LugarSiniestro>
+<NombreVia>COLINA PARK 00000 CERRO DEL 29649 CERROS</NombreVia>
+<CodigoPostal>COLINA PARK 00000 CERRO DEL 29649 CERROS</CodigoPostal>
+<Poblacion>ALCANTARA, URBANIZACION</Poblacion>
+<Provincia>ENTRERRIOS</Provincia>
+</LugarSiniestro>
+<RiesgosSiniestro>
+<RiesgoRecSin>
+<DescripcionRiesgo>filtracion por lluvia en el bq B 1º 8</DescripcionRiesgo>
+<Version>filtracion por lluvia en el bq B 1º 8</Version>
+</RiesgoRecSin>
+</RiesgosSiniestro>
+<tomador>
