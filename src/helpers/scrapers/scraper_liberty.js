@@ -141,7 +141,47 @@ async function XMLexp( dato, user, pass, exp){
     })();
 }
 
-module.exports = { listaExp, XMLexp};
+async function ListaMensajes(data, user, pass){
+    return (async () => {
+        // inicio navegador
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const context = await browser.newContext(); // usa el modo incognito
+        const page = await context.newPage();   //abre una nueva paguina del navegado
+
+        // logueo completo
+        await login(browser, page, dato, user, pass);
+
+        await sleep(2000);  //demora de 2000ms
+        let url = await page.url();
+        if( url != dato.link_exps){
+            await browser.close();      //cierro navegador
+            return { status: 400, message: "Error: Ha ocurrido un error en el login revise el Usuario y el Password", data: [] }
+        }
+
+        console.log(data);
+    
+        // try{
+        //     await page.waitForSelector(wait);
+        //     const lista = await page.$$eval(map, (spans) => spans.map((span) => span.textContent));
+
+        //     if( lista.length == 0 ){
+        //         await browser.close();      //cierro navegador
+        //         return { status: 200,  message: "No hay expedientes nuevos", data: [] }
+        //     }
+
+        //     await browser.close();      //cierro navegador
+        //     return { status: 200, message: "La consulta ha sido exitosa", data: lista  }
+
+        // }catch (error) {
+        //     await browser.close();      //cierro navegador
+        //     if (error instanceof playwright.errors.TimeoutError) {
+        //         return { status: 400, message: "Error: ocurrio un error al intentar mapear la lista de expedientes", data: []  }
+        //     }
+        // }
+    })();
+}
+
+module.exports = { listaExp, XMLexp, ListaMensajes};
 
 //Lista mensaje de ubn expediente
 // async function ListaMensajes(data, user, pass, exp, fecha_encargo){
