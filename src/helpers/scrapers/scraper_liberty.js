@@ -149,16 +149,24 @@ async function ListaMensajes(data, user, pass){
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
         // logueo completo
-        await login(browser, page, dato, user, pass);
+        await login(browser, page, data, user, pass);
 
-        await sleep(2000);  //demora de 2000ms
+        await sleep(3000);//demora de 2000ms
         let url = await page.url();
-        if( url != dato.link_exps){
-            await browser.close();      //cierro navegador
+        if( url != data.link_exps){
+            await browser.close();//cierro navegador
             return { status: 400, message: "Error: Ha ocurrido un error en el login revise el Usuario y el Password", data: [] }
         }
 
-        console.log(data);
+        await page.click('#row-nav-principal > div > div.col-component.col-cell.col-offset-0.col-9.col-tablet-0.col-mobile-0.horizontal-left.vertical-bottom.scroll-default.ov-default > div > ul > li:nth-child(3) > a');
+        await sleep(3000);
+
+        await page.mouse.down();
+        
+        // let resultado = await page.$$eval('body > div.libty > div > div:nth-child(1) > main > article > div > div > div > ul > li > div > div > div > article > header > div.col-component.col-cell.col-offset-0.col-9.col-tablet-9.col-mobile-0.horizontal-left.vertical-middle.scroll-default.ov-default > div > div.col-component.col-cell.col-offset-0.col-3.col-tablet-4.col-mobile-0.horizontal-left.vertical-bottom.scroll-default.ov-default > h1', (h1s) => h1s.map((h1) => h1.textContent));
+
+        // return resultado
+
     
         // try{
         //     await page.waitForSelector(wait);
