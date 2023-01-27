@@ -17,6 +17,7 @@ router.get('/descarga_expediente', getExp);
 router.get('/lista_mensajes', getMensajes);
 router.get('/subir_mensaje', subirMensajes);
 router.get('/lista_nuevos_expedientes', getList);
+router.get('/lista_mensajes_x_expediente', getMensajesExpediente);
 
 // route functions
 function getExp(req, res, next) {
@@ -57,6 +58,16 @@ function subirMensajes(req, res, next) {
     const data = bot_config[id];
 
     bot[id].SubirMensajes( {data , user, pass, exp, fecha_encargo, text, tipo})
+    .then( (lista_messages)=> {
+        return res.send( lista_messages );
+    }).catch(next);
+}
+
+function getMensajesExpediente(req, res, next) {
+    const { id, pass, user, exp} = req.query;
+    const data = bot_config[id];
+
+    bot[id].ListarMensajesExpediente(data , user, pass, exp)
     .then( (lista_messages)=> {
         return res.send( lista_messages );
     }).catch(next);
