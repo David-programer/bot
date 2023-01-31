@@ -24,12 +24,15 @@ async function login( browser, page, dato, user, pass){
         page.keyboard.press('Enter'); 
         await sleep(10000);
 
+        let url = await page.url();
+        if(dato.link_exps != url) return { status: 401, message: "¡Usuario o contraseña incorrecta!", data: [] }
+
         return { status: 200, message: "¡Logueado con éxito!", data: [] }
 
     } catch (error) {
         await browser.close();      //cierro navegador
         if (error instanceof playwright.errors.TimeoutError) {
-            console.log( " Error: Tiempo de ejecución, algun parametro no ha sido encontrado");
+            console.log( "Error: Tiempo de ejecución, algun parametro no ha sido encontrado");
             return { status: 400, message: "Error: Tiempo de ejecución, algun parametro no ha sido encontrado", data: []}
         }
     }
@@ -86,7 +89,7 @@ async function listaExp( dato, user, pass ){
         try{
             //Loguin
             const response = await login( browser, page, dato, user, pass)
-            if(response.status != 200){return await browser.close()}
+            if(response.status != 200){await browser.close(); return response;}
     
             frameObject = page.frame({ name: 'fraPrincipal' });
 
@@ -176,7 +179,7 @@ async function XMLexp( dato, user, pass, exp, fecha_encargo ){
 //Loguea y lista mensajes nuevos del usuario
 async function ListaMensajes(data, user, pass){
         // Inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
@@ -216,7 +219,7 @@ async function ListaMensajes(data, user, pass){
 //Subir mensaje a un expediente
 async function SubirMensajes({data, user, pass, exp, text, fecha_encargo, tipo}){
     // Inicio navegador
-    const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+    const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
     const context = await browser.newContext(); // usa el modo incognito
     const page = await context.newPage();   //abre una nueva paguina del navegado
 

@@ -56,7 +56,7 @@ const bot_config = {
         nombre_empresa          : 'SINEXIA',
         id_pass                 : 'password', 
         ruta_loguin             : 'http://sx-expert.sinexia.es/',
-        link_exps               : 'https://www.generali.es/arq_genernetPortalFormWeb/profesionalPortal.po',
+        link_exps               : 'http://diversos.sinexia.es/home_new.asp',
     }
 }
 

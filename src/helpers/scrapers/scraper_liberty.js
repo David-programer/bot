@@ -16,7 +16,6 @@ async function login(browser, page, dato, user, pass){
         await page.click('text='+ dato.boton_login );    // doy clic en el boton con las propiedades indicadas
 
         return { status: 200, message: "Logueado con éxito", data: []}
-
     } catch (error) {
         await browser.close(); //cierro navegador
         console.log(error)
@@ -28,7 +27,7 @@ async function login(browser, page, dato, user, pass){
 async function listaExp( dato, user, pass ){
     return (async () => {
         // inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
@@ -73,7 +72,7 @@ async function listaExp( dato, user, pass ){
 async function XMLexp(dato, user, pass, exp){
     return (async () => {
         // Inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
@@ -145,7 +144,7 @@ async function XMLexp(dato, user, pass, exp){
 async function ListaMensajes(data, user, pass){
     return (async () => {
         // inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
@@ -164,33 +163,26 @@ async function ListaMensajes(data, user, pass){
                 
         let resultado = await page.$$eval('body > div.libty > div > div:nth-child(1) > main > article > div > div > div > ul > li > div > div > div > article > header > div.col-component.col-cell.col-offset-0.col-9.col-tablet-9.col-mobile-0.horizontal-left.vertical-middle.scroll-default.ov-default > div > div.col-component.col-cell.col-offset-0.col-3.col-tablet-4.col-mobile-0.horizontal-left.vertical-bottom.scroll-default.ov-default > h1', (h1s) => h1s.map((h1, index) => h1.textContent ));
 
-        resultado.forEach(async (value, index)=> {
-            await page.click(`#home-mensaje-${index}`);
-            await sleep(1000);
+        resultado.forEach((value, index)=> {
+            setTimeout(async () => {
+                await page.click(`#home-mensaje-${index}`);
+                if(index + 1 == resultado.length){
+                    await page.click('#encargo-detalle-mensajes-header-buttons > ul > li > div > a');
+                    await page.click('#encargo-detalle-mensajes-header-buttons > ul > li > div > ul > li:nth-child(2) > a');
+                    await sleep(2000);
+                    await browser.close(); //cierro navegador
+                }
+            }, 300 + Number(`${index}00`));
         })
 
-        // await page.click('#home-mensaje-1');
-        // await page.click('#home-mensaje-2');
-        // await page.click('#home-mensaje-3');
-        // await page.click('#home-mensaje-4');
-        // await page.click('#home-mensaje-5');
-        // await page.click('#home-mensaje-6');
-        // await page.click('#home-mensaje-7');
-        // await page.click('#home-mensaje-8');
-        // await page.click('#home-mensaje-9');
-        // await page.click('#home-mensaje-10');
-        // await page.click('#encargo-detalle-mensajes-header-buttons > ul > li > div > a');
-        // await page.click('#encargo-detalle-mensajes-header-buttons > ul > li > div > ul > li:nth-child(2) > a');
-        // await sleep(2000);
-        // await browser.close(); //cierro navegador
-        // return { status: 200, message:  `¡Se ha generado la información!`, data: resultado}
+        return { status: 200, message:  `¡Se ha generado la información!`, data: resultado}
     })();
 }
 
 async function ListarMensajesExpediente(data, user, pass, exp){
     return (async () => {
         // inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
@@ -238,7 +230,7 @@ async function ListarMensajesExpediente(data, user, pass, exp){
 async function SubirMensajes({data, user, pass, exp, text}){
     return (async () => {
         // inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
