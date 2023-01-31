@@ -189,7 +189,7 @@ async function ListarMensajesExpediente(data, user, pass, exp){
         // logueo completo
         await login(browser, page, data, user, pass);
 
-        await sleep(3000);//demora de 2000ms
+        await sleep(5000);//demora de 2000ms
         let url = await page.url();
         if( url != data.link_exps){
             await browser.close();//cierro navegador
@@ -237,7 +237,7 @@ async function SubirMensajes({data, user, pass, exp, text}){
         // logueo completo
         await login(browser, page, data, user, pass);
 
-        await sleep(4000);//demora de 2000ms
+        await sleep(6000);//demora de 2000ms
         let url = await page.url();
         if( url != data.link_exps){
             await browser.close();//cierro navegador
@@ -256,9 +256,11 @@ async function SubirMensajes({data, user, pass, exp, text}){
             await sleep(2000);
             await page.fill('textarea[id="nuevoMensajeForm.descripcion"]', text); 
 
+            await page.click('#mensajes-area-nuevo-mensaje > div > div > div > div > form > div.row-component.row-cell.espacio-v-3.responsive-none > div > button.button-component.btn.btn-principal.margen-l-2');
+            await sleep(2000);
+            await browser.close(); //cierro navegador
             
-            // await browser.close(); //cierro navegador
-            return { status: 200, message: `Mensaje pendiente para enviar`, data: []}
+            return { status: 200, message: `¡Mensaje enviado con éxito!`, data: []};
 
         } catch (error) {
             await browser.close();//cierro navegador
