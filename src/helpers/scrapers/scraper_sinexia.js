@@ -140,7 +140,7 @@ async function XMLexp( dato, user, pass, exp, fecha_encargo ){
 
             let data = {
                 exp,
-                poliza: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(2) > a').textContent(),
+                poliza: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
                 fecha_encargo: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
                 nombre: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(1) > td.valorCampo').textContent(),
                 obsevaciones: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(13) > table > tbody > tr > td').textContent(),
