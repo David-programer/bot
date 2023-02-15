@@ -26,10 +26,9 @@ function getExp(req, res, next) {
     
     bot[id].XMLexp( paguina, user, pass, exp, fecha_encargo )
     .then((arrayExp)=> {
-        console.log(arrayExp)
+        // res.send(arrayExp)
         if(arrayExp.status != 200) return res.send(arrayExp);
         xml.xml(arrayExp.data).then((response)=>{console.log(response); res.send(response)}).catch(next);
-
     }).catch(next);
 }
 

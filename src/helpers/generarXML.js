@@ -4,7 +4,6 @@ async function xml( arrayExp ) {
 
     // var data_array_exp =    [ 'exp','dir', 'compania', 'fecha_encargo', 'obsevaciones', 'tipo_siniestro', 'poliza', 'ramo','causa_siniestro', 'version', 'fecha_ocurrencia', 'fecha_efecto', 'nif', 'nombre' ];   
     // causa_siniestro:: No requerido
-
     //XML
     const DatosPoliza =  
         '<DatosPoliza>'+
@@ -66,7 +65,7 @@ async function xml( arrayExp ) {
                 '<Telefono>'+arrayExp.telefono_siniestro+'</Telefono>'+
                 '<Contacto>'+arrayExp.contacto_siniestro+'</Contacto>'+
                 '<Email>'+arrayExp.email_siniestro_1+' - '+ arrayExp.email_siniestro_2+'</Email>'+
-                '<CodigoPostal>'+arrayExp.dir.split( ).pop()+'</CodigoPostal>'+
+                '<CodigoPostal>'+arrayExp.dir.split().pop()+'</CodigoPostal>'+
                 '<Poblacion>'+arrayExp.poblacion+'</Poblacion>'+
                 '<Provincia>'+arrayExp.provincia+'</Provincia>'+
             '</LugarSiniestro>'+

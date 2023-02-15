@@ -56,7 +56,7 @@ async function buscarExpediente(browser, page, exp, fecha_encargo){
 
             page.keyboard.press('Enter'); 
 
-            await sleep(1500);
+            await sleep(2500);
 
             try{
                 let lista = await frameObject.$$eval('#maestro > table.tabla > tbody > tr > td:nth-child(5)', (spans) => spans.map((span) => span.textContent));
@@ -138,37 +138,58 @@ async function XMLexp( dato, user, pass, exp, fecha_encargo ){
             
             frameObject = page.frame({ name: 'fraPrincipal' });
 
-            let data = {
-                exp,
-                poliza: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
-                fecha_encargo: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
-                nombre: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(1) > td.valorCampo').textContent(),
-                obsevaciones: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(13) > table > tbody > tr > td').textContent(),
-                compania: await frameObject.locator('#pr_nombrecompanyia > a').textContent(),
-                version: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(15) > table > tbody > tr > td').textContent(),
-                nif: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(8) > td:nth-child(2)').textContent(),
-                fecha_efecto : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
-                email_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(3) > td:nth-child(4)').textContent(),
-                datos_intervinientes_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(7) > td.valorCampo').textContent(),
-                nombre_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(2)').textContent(),
-                telefono_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
-                provincia: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
-                tipo_figura:  await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(3) > td:nth-child(1) > a').textContent(),
-                nombre_figura:  await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(3) > td:nth-child(2) > a').textContent(),
-                tipo_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(15) > table > tbody > tr > td').textContent(),
-                fecha_ocurrencia : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
-                poblacion: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(2) > td:nth-child(2)').textContent(),
-                dir: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
-                codigo_postal: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
-                ramo : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
-                nombre_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
-                telefono_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
-                email_siniestro_1 : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(5) > td:nth-child(2)').textContent(),
-                email_siniestro_2 : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)').textContent(),
-                telefono_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
-                contacto_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
+            let data = {};
+
+            try{
+                await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(1) > td.rojo').textContent();
+
+                data = {
+                    exp,
+                    compania: await frameObject.locator('#pr_nombrecompanyia > a').textContent(),
+                    provincia: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
+                    fecha_ocurrencia : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    poblacion: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(2) > td:nth-child(2)').textContent(),
+                    dir: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    codigo_postal: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    ramo : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    nombre_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    telefono_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    email_siniestro_2 : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)').textContent(),
+                    contacto_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
+                }
+            }catch{
+                data = {
+                    exp,
+                    poliza: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    fecha_encargo: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
+                    nombre: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(1) > td.valorCampo').textContent(),
+                    obsevaciones: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(13) > table > tbody > tr > td').textContent(),
+                    compania: await frameObject.locator('#pr_nombrecompanyia > a').textContent(),
+                    version: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(15) > table > tbody > tr > td').textContent(),
+                    nif: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(8) > td:nth-child(2)').textContent(),
+                    fecha_efecto : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
+                    email_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(3) > td:nth-child(4)').textContent(),
+                    datos_intervinientes_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(7) > td.valorCampo').textContent(),
+                    nombre_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(2)').textContent(),
+                    telefono_agente: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
+                    provincia: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(8) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
+                    tipo_figura:  await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(3) > td:nth-child(1) > a').textContent(),
+                    nombre_figura:  await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(6) > table > tbody > tr:nth-child(3) > td:nth-child(2) > a').textContent(),
+                    tipo_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(15) > table > tbody > tr > td').textContent(),
+                    fecha_ocurrencia : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(11) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    poblacion: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(2) > td:nth-child(2)').textContent(),
+                    dir: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    codigo_postal: await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    ramo : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(9) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    nombre_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(2)').textContent(),
+                    telefono_reparador : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(12) > table > tbody > tr:nth-child(1) > td:nth-child(4)').textContent(),
+                    email_siniestro_1 : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(5) > td:nth-child(2)').textContent(),
+                    email_siniestro_2 : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)').textContent(),
+                    telefono_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(2) > td:nth-child(4)').textContent(),
+                    contacto_siniestro : await frameObject.locator('body > div.layerExpediente > form > fieldset:nth-child(7) > table > tbody > tr:nth-child(3) > td:nth-child(2)').textContent(),
+                }
             }
-            
+
             await browser.close();
             return { status: 200, data}
 
