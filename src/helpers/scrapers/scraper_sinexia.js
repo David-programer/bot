@@ -90,17 +90,23 @@ async function listaExp( dato, user, pass ){
             //Loguin
             const response = await login( browser, page, dato, user, pass)
             if(response.status != 200){await browser.close(); return response;}
-    
+            await sleep(5000);
+            
             frameObject = page.frame({ name: 'fraPrincipal' });
 
             try{
                 await frameObject.locator('#mostrarNotificaciones').click();
                 await sleep(1000);
             }catch{}
-    
-            await frameObject.locator('body > table:nth-child(23) > tbody > tr:nth-child(2) > td > fieldset:nth-child(4) > table > tbody > tr:nth-child(1) > td:nth-child(2) > img').click();
+            
+            try{
+                await frameObject.locator('body > table:nth-child(23) > tbody > tr:nth-child(2) > td > fieldset:nth-child(4) > table > tbody > tr:nth-child(2) > td:nth-child(2)').click();
+            }catch{
+                await browser.close();
+                return { status: 500, message: "No se pudieron cargar los expedienes, puede que el error esté relacionado con la velocidad de su conexión a internet", data: []  }
+            }
+
             await sleep(3000);
-    
             frameObject = page.frame({ name: 'fraPrincipal' });
     
             const lista = await frameObject.$$eval('#gridbox > div.objbox > table > tbody > tr > td:nth-child(1)', (spans) => spans.map((span) => span.textContent));
