@@ -43,11 +43,20 @@ async function buscarExpediente(browser, page, exp, fecha_encargo){
     return (async () => {
         try{
             frameObject = page.frame({ name: 'fraMenus' });
+            
+            let textLink = await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td.standartTreeRow > span').textContent();
+            
+            if(textLink == 'Expedientes'){
+                await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(3) > img').click();
+                await sleep(2000);
+                await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr > td.standartTreeRow > span > a').click();
+            }
+            else {
+                await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(5) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(1) > img').click();
+                await sleep(2000);
+                await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(5) > td:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr > td.standartTreeRow > span > a').click();
+            }
 
-            await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(5) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(1) > img').click()
-            await sleep(2000);
-
-            await frameObject.locator('#imagen2 > div > table > tbody > tr:nth-child(5) > td:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr > td.standartTreeRow > span > a').click()
             await sleep(4000);
 
             frameObject = page.frame({ name: 'fraPrincipal' });
@@ -129,7 +138,7 @@ async function listaExp( dato, user, pass ){
 async function XMLexp( dato, user, pass, exp, fecha_encargo ){
     return (async () => {
         // Inicio navegador
-        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: true } );    //abre el navegador con las propiedades descritas 
+        const browser = await chromium.launch( { ignoreHTTPSErrors: true, headless: false } );    //abre el navegador con las propiedades descritas 
         const context = await browser.newContext(); // usa el modo incognito
         const page = await context.newPage();   //abre una nueva paguina del navegado
 
